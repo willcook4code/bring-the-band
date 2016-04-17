@@ -1,13 +1,24 @@
 import React from 'react';
 import Navs from './components/navs.js';
-import Results from './components/search-results.js';
 import $ from 'jquery';
+import vote from './collections/voteCollection.js'
 
 const Home = React.createClass({
 	getInitialState: function() {
 		return {
 			band: []
 		}
+	},
+	postVote: function(e) {
+		console.log(e.target.refs);
+		console.log(this.refs.name.innerHTML);
+		console.log(this.refs.pic);
+		let newVote = {
+			key: this.refs.key,
+			pic: this.refs.pic.src,
+			name: this.refs.name.innerHTML
+		};
+		vote.create(newVote);
 	},
 	runSearch: function() {
 		// var allState = [];
@@ -25,30 +36,28 @@ const Home = React.createClass({
 			// return allState;
 		});
 		}.bind(this));
-		console.log(this);
+		//^^I don't quite understand what bind is doing here.  Found this solution on the React website.
 		
 	},
 	render: function() {
 		const bands = (this.state);
-		const allBands = [];
-		allBands.push(bands.band);
-		console.log(allBands);
-		console.log(bands.band);
-		console.log(bands.pic);
-		const eachBand = allBands[0].map((val,i,array) => {
+		const eachBand = bands.band.map((val,i,array) => {
 			// console.log(val.name);
 			// console.log(val.images[0]);
-			if (val.images == false) {
+			if (!val.images[0]) {
 				val.images.push({url: 'https://lh4.googleusercontent.com/-fj6pace2cv0/U9Jt75Kq8PI/AAAAAAAARtE/ttg-4YuCOfQ/s250/exe_empty_thumbnail.jpg'});
 			} 
 			return (
-				<div className='searchResults'>
-					<img src={val.images[0].url}/>
-					<h3> {val.name} </h3>
-					<button> Rock this Vote </button>
+				<div className='searchResults' key = {i}>
+					<img 
+					src={val.images[0].url}
+					ref= 'pic'/>
+					<h3 ref = 'name'> 
+					{val.name} 
+					</h3>
+					<button onClick = {this.postVote} ref = {this.i}> Rock this Vote </button>
 				</div>
 			)
-
 		});
 		return (
 			<section className = 'homePage'>
@@ -65,13 +74,3 @@ const Home = React.createClass({
 });
 
 export default Home;
-
-	// getInitialState: function() {
-	// 	return {Posting: []}
-	// },
-	// componentDidMount: function() {
-	// 	Posting.on('add', () => {
-	// 		this.setState({Posting: Posting})
-	// 	});
-	// 	Posting.fetch();
-	// },
