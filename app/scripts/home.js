@@ -37,7 +37,6 @@ const Home = React.createClass({
 			} 
 			return (
 				<BandEntry 
-					key={val.id}
                     name={val.name}
                     pic={val.images[0].url}
 				/>
