@@ -33,7 +33,7 @@ const Home = React.createClass({
 			// console.log(val.name);
 			// console.log(val.images[0]);
 			if (!val.images[0]) {
-				val.images.push({url: 'https://lh4.googleusercontent.com/-fj6pace2cv0/U9Jt75Kq8PI/AAAAAAAARtE/ttg-4YuCOfQ/s250/exe_empty_thumbnail.jpg'});
+				val.images.push({url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png'});
 			} 
 			return (
 				<BandEntry 
