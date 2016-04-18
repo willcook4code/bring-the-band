@@ -2,7 +2,7 @@ import React from 'react';
 import vote from './../collections/voteCollection.js'
 
 const BandEntry = React.createClass({
-	postVote: function(e) {
+	postVote: function() {
 		// console.log(this.state.band[this.refs.key]);
 		// console.log(e.target.refs);
 		// console.log(this.refs.name.innerHTML);
