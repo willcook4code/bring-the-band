@@ -2,6 +2,7 @@ import Backbone from 'backbone';
 
 const voteModel = Backbone.Model.extend({
 	defaults: {
+		key: '',
 		pic: '',
 		name: ''
 	},
