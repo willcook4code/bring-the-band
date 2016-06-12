@@ -1,27 +1,23 @@
 import React from 'react';
 import States from './../stateList.js';
+import Cities from './../cityList.js';
 import $ from 'jquery';
 
 export default React.createClass({
-	runSearch: function() {
-		// this.stateSearch = $.get('http://api.sba.gov/geodata/city_links_for_state_of/tx.json', function(locations) {
-		// 	console.log(locations);
-		// });
-		this.spotifySearch = $.get('https://api.spotify.com/v1/search?q=%27song%27&type=track', function(songs) {
-			console.log(songs);
-		});
+	cityPick: function() {
+		var stateIndex = Math.ceil(Math.random()*States.models.length);
+		var randomStateIndex = States.at(stateIndex).get('_id');
+		var randomState = States.at(stateIndex).get('state');
+		var cityCol = Cities.findWhere({stateId: randomStateIndex});
+		var cityLength = cityCol.get('byState').length;
+		var randomCity = cityCol.get('byState')[Math.ceil(Math.random()*cityLength)];
+		console.log(randomCity + ', ' + randomState);
+
 	},	
 	render: function() {
-		const eachState = States.models.map((val, i, array) => {
-			return (
-			<p key = {i}>{val.get('state')}</p>
-			)
-		});
 		return (
 			<div>
-				<h1>Hi</h1>
-				<button onClick= {this.runSearch}>Search</button>
-				{eachState}
+				<button onClick= {this.cityPick}>Pick that CITY!!</button>
 			</div>
 		)
 	}
