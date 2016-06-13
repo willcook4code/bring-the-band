@@ -1,1 +1,61 @@
 @import 'variables';
+
+section {
+	background-image: url("http://www.roadtrippod.com/rtrsplash160612.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 45em;
+    background-position-x: 50%;
+    padding: 5%;
+    padding-top: 2.5em;
+    box-sizing: border-box;
+}
+.pickerContainer{
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 8em;
+    width: 40%;
+    margin: 0em auto;
+    border-radius: 20px;
+    padding-top: 2em;
+}
+.picker{
+	background-color: ghostwhite;
+    display: block;
+    border: none;
+    border-radius: 5px;
+    height: 3em;
+    width: 15em;
+    margin: 0 auto;
+    > span {
+    	font-family: serif;
+	    font-weight: bolder;
+	    font-size: large;
+    }
+}
+.scrollable {
+    height: 2.95em;
+    width: 100%;
+    padding: 0;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+.items {
+    -webkit-animation: scroll 5s;
+    -moz-animation: scroll 5s;
+    -ms-animation: scroll 5s;
+}
+
+@-webkit-keyframes scroll {
+  from   { margin-top: -177.24em; }
+  to  { margin-top: 0; }
+}
+@-moz-keyframes scroll {
+  from   { margin-top: -177.24em; }
+  to  { margin-top: 0; }
+}
+@-ms-keyframes scroll {
+  from   { margin-top: -177.24em; }
+  to  { margin-top: 0; }
+}

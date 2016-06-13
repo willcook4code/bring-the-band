@@ -6,14 +6,5 @@ import CityPicker from './components/cityPicker.js';
 import $ from 'jquery';
 import CityCollection from './collections/cityCollection.js';
 
-// $.ajaxSetup({
-	// headers: {
-	// 	Accept: 'application/json',
-	// },\
-// 	xhrFields: {
-// 		withCredentials: true
-// 	},
-// 	dataType: 'json'
-// });
 
 render(<CityPicker/>, document.getElementById('main'));
